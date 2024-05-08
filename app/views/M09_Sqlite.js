@@ -27,7 +27,7 @@ export class M09_Sqlite extends React.Component {
     this.state = {
       path: null,
     };
-    db = SQLite.openDatabase("db.db");
+    db = SQLite.openDatabase("daw2.db");
 
     db.transaction(tx => {
       tx.executeSql(

@@ -28,6 +28,7 @@ export class M06_Home extends React.Component {
             title="Anar a Detalls"
             onPress={() => this.props.navigation.navigate('Detall', {
               nom: 'DAW2',
+              curs: '2024'
             })}
           />
           <Button

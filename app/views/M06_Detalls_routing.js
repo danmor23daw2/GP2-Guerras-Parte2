@@ -22,7 +22,7 @@ export class M06_Detalls extends React.Component {
       return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text>Pantalla Detall {JSON.stringify(this.props.route.params.nom)}</Text>
-          <Text>el curs és: </Text>
+          <Text>el curs és: {JSON.stringify(this.props.route.params.curs)}</Text>
     
           <Button title="Tornar a Home" onPress={() => this.props.navigation.navigate('Home')} />
           <Button title="Go back" onPress={() => this.props.navigation.navigate.goBack()} />

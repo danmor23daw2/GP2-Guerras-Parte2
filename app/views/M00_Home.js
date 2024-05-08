@@ -24,7 +24,7 @@ export class M00_Home extends React.Component {
         return (
             <View style={estils.contenidor}>
               
-              <M01_PropsStates missatge='polsar per a Login'></M01_PropsStates>
+              <M01_PropsStates missatge='Login'></M01_PropsStates>
               <M02_Estils></M02_Estils>
               <M03_Esdeveniments></M03_Esdeveniments>
               <Text>Aprenent React Native a DAW2</Text>
