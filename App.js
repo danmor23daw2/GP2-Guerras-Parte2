@@ -9,6 +9,7 @@ import {M07_Camera} from './app/views/M07_Camera';
 import {M09_Sqlite} from './app/views/M09_Sqlite';
 import { M08_Mapes } from './app/views/M08_Mapes';
 import { M10_Suma } from './app/views/M10_Suma';
+import {VeureGuerresReligions} from './app/views/SqliteVer';
 /**
  * Modificacions al component principal d'entrada de React
  * per incloure encaminaments, però no components
@@ -30,6 +31,7 @@ function App() {
         <Stack.Screen name="Camera" component={M07_Camera} />
         <Stack.Screen name="Mapes" component={M08_Mapes} />
         <Stack.Screen name="SQLite" component={M09_Sqlite} />
+        <Stack.Screen name="Ver" component={VeureGuerresReligions} />
         <Stack.Screen name="Suma" component={M10_Suma} />
       </Stack.Navigator>
     </NavigationContainer>
