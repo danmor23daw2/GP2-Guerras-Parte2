@@ -25,10 +25,8 @@ export class M06_Home extends React.Component {
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text>Pantalla Home</Text>
           <Button
-            title="Anar a Detalls"
-            onPress={() => this.props.navigation.navigate('Detall', {
-              nom: 'DAW2',
-              curs: '2024'
+            title="Guerras"
+            onPress={() => this.props.navigation.navigate('Guerras', {
             })}
           />
           <Button

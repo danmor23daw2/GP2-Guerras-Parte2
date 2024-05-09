@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import {M00_Home} from './app/views/M00_Home';
 
 import {M06_Home} from './app/views/M06_Home_routing';
-import {M06_Detalls} from './app/views/M06_Detalls_routing';
+import {Guerras} from './app/views/Guerras';
 import {M07_Camera} from './app/views/M07_Camera';
 import {M09_Sqlite} from './app/views/M09_Sqlite';
 import { M08_Mapes } from './app/views/M08_Mapes';
@@ -26,7 +26,7 @@ function App() {
       <Stack.Navigator initialRouteName="Home">
        <Stack.Screen name="Zero" component={M00_Home} />
         <Stack.Screen name="Home" component={M06_Home} />
-        <Stack.Screen name="Detall" component={M06_Detalls} />
+        <Stack.Screen name="Guerras" component={Guerras} />
         <Stack.Screen name="Camera" component={M07_Camera} />
         <Stack.Screen name="Mapes" component={M08_Mapes} />
         <Stack.Screen name="SQLite" component={M09_Sqlite} />
