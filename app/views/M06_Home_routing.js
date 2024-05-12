@@ -1,57 +1,79 @@
 import React from 'react';
-import { StyleSheet, Button, Text, View } from 'react-native';
+import { StyleSheet, Button, Text, View, Image } from 'react-native';
 
-
-/**
- * Classe que hereta de Component i que implementa un component
- * independent en l'app. És un component bàsic sense estils
- * Fa servir routing
- * @version 1.0 23.03.2020
- * @author sergi.grau@fje.edu
- */
-
-const estils = StyleSheet.create({
-  contenidor: {
+const styles = StyleSheet.create({
+  container: {
     flex: 1,
-    backgroundColor: '#0f0'
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    backgroundColor: '#B881CB',
+    paddingVertical: 5,
+    paddingHorizontal: 12,
+    marginBottom: 100,
+    width: '100%',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10, 
+  },
+  sub: {
+    textAlign: 'center',
+    paddingBottom: 50,
+    fontSize: 15,
+    marginBottom: 20,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
+  button: {
+    marginVertical: 10,
+    width: '40%',
+  },
+  movieImage: {
+    height: 150,
+    marginBottom: 10,
+    marginTop: -100
   }
 });
 
 export class M06_Home extends React.Component {
-
-  
-    render() {
-      return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>Pantalla Home</Text>
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image source={require('../../assets/guerra4.jpg')} style={styles.movieImage} />
+        <View style={styles.header}>
+          <Text style={styles.title}>Geopolítica y Religión</Text>
+        </View>
+        <Text style={styles.sub}>Explora el impacto de los intereses geopolíticos y religiosos en los conflictos mundiales a lo
+            largo de la historia y en el mundo contemporáneo.</Text>
+        <View style={styles.buttonContainer}>
           <Button
+            style={styles.button}
             title="Guerras"
-            onPress={() => this.props.navigation.navigate('Guerras', {
-            })}
+            onPress={() => this.props.navigation.navigate('Guerras')}
           />
           <Button
+            style={styles.button}
             title="Anar a Camera"
             onPress={() => this.props.navigation.navigate('Camera')}
           />
+        </View>
+        <View style={styles.buttonContainer}>
           <Button
-            title="Anar a Mapes"
-            onPress={() => this.props.navigation.navigate('Mapes')}
-          />
-          <Button
-            title="Anar a SQLite"
-            onPress={() => this.props.navigation.navigate('SQLite')}
-          />
-          <Button
-            title='Veure Religions y Guerres'
+            style={styles.button}
+            title="Veure Religions y Guerres"
             onPress={() => this.props.navigation.navigate('Ver')}
           />
-          <Button
-            title="Anar a Suma"
-            onPress={() => this.props.navigation.navigate('Suma')}
-          />
-
         </View>
-      );
-
-    }
+      </View>
+    );
+  }
 }
