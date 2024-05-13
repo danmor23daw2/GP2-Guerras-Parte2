@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TextInput } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 
 const estils = StyleSheet.create({
@@ -14,11 +14,20 @@ const estils = StyleSheet.create({
         backgroundColor: 'purple'
     },
 });
+
 export class VeureGuerresReligions extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: [],
+            items: [
+                { id: 1, value: 'Cruzadas (Cristianismo vs Islam)' },
+                { id: 2, value: 'Guerras de Religión en Francia (Catolicismo vs Protestantismo)' },
+                { id: 3, value: 'Inquisición (Persecución de no católicos por la Iglesia Católica)' },
+                { id: 4, value: 'Guerras de religión en Europa Central (Catolicismo vs Protestantismo)' },
+                { id: 5, value: 'Guerras Otomanas (Islam vs Cristianismo)' },
+                { id: 6, value: 'Guerras de las Reformas (Cristianismo vs Protestantismo)' },
+                { id: 7, value: 'Cruzada Albigense (Cristianismo vs Catarismo)' }
+            ],
             editingItem: null,
             editValue: '',
         };
@@ -30,62 +39,6 @@ export class VeureGuerresReligions extends React.Component {
             );
         });
 
-        this.fetchData();
-    }
-
-    fetchData() {
-        this.db.transaction(
-            tx => {
-                tx.executeSql("select * from items", [], (_, { rows }) => {
-                    const items = rows._array;
-                    this.setState({ items });
-                });
-            }
-        );
-    }
-
-    handleAddItem = () => {
-        const newItem = `Item ${this.state.items.length + 1}`;
-        this.db.transaction(
-            tx => {
-                tx.executeSql("insert into items (done, value) values (0, ?)", [newItem], () => {
-                    this.fetchData();
-                });
-            }
-        );
-    }
-
-    handleDeleteAll = () => {
-        this.db.transaction(
-            tx => {
-                tx.executeSql("delete from items", [], () => {
-                    this.fetchData();
-                });
-            }
-        );
-    }
-
-    handleEditItem = () => {
-        const { editingItem, editValue } = this.state;
-        this.db.transaction(
-            tx => {
-                tx.executeSql("update items set value = ? where id = ?", [editValue, editingItem.id], () => {
-                    this.setState({ editingItem: null, editValue: '' }, () => {
-                        this.fetchData();
-                    });
-                });
-            }
-        );
-    }
-
-    handleDeleteItem = (id) => {
-        this.db.transaction(
-            tx => {
-                tx.executeSql("delete from items where id = ?", [id], () => {
-                    this.fetchData();
-                });
-            }
-        );
     }
 
     renderItem = ({ item }) => (
@@ -97,13 +50,10 @@ export class VeureGuerresReligions extends React.Component {
                         value={this.state.editValue}
                         onChangeText={text => this.setState({ editValue: text })}
                     />
-                    <Button title="Guardar" onPress={this.handleEditItem} color="purple" />
                 </View>
             ) : (
                 <View>
                     <Text>{item.value}</Text>
-                    <Button title="Editar" onPress={() => this.setState({ editingItem: item, editValue: item.value })} color="purple"/>
-                    <Button title="Borrar" onPress={() => this.handleDeleteItem(item.id)} color="purple"/>
                 </View>
             )}
         </View>
@@ -113,8 +63,6 @@ export class VeureGuerresReligions extends React.Component {
         return (
             <View style={estils.peu}>
                 <Text style={estils.textPeu}> SQLITE </Text>
-                <Button title="Añadir Registro" onPress={this.handleAddItem} color="#B881CB"/>
-                <Button title="Borrar Todos los Registros" onPress={this.handleDeleteAll} color="#B881CB"/>
                 <FlatList
                     data={this.state.items}
                     renderItem={this.renderItem}
