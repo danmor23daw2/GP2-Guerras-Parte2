@@ -7,6 +7,7 @@ const estils = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
         fontSize: 30,
+        textAlign: 'center',
     },
     peu: {
         paddingTop: 10,
@@ -62,7 +63,7 @@ export class VeureGuerresReligions extends React.Component {
     render() {
         return (
             <View style={estils.peu}>
-                <Text style={estils.textPeu}> SQLITE </Text>
+                <Text style={estils.textPeu}> Guerras y Religiones </Text>
                 <FlatList
                     data={this.state.items}
                     renderItem={this.renderItem}
