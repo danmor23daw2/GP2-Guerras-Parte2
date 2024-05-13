@@ -3,7 +3,7 @@ import { View, Button, Image, Text } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 
-export class M07_Camera extends React.Component {
+export class Camara extends React.Component {
   cameraRef = React.createRef();
 
   constructor(props) {

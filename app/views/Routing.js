@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export class M06_Home extends React.Component {
+export class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -67,7 +67,7 @@ export class M06_Home extends React.Component {
           <View style={styles.buttonSeparator} />
           <Button
             style={styles.button}
-            title="Anar a Camera"
+            title="Camara"
             onPress={() => this.props.navigation.navigate('Camera')}
             color="purple"
           />
@@ -75,7 +75,7 @@ export class M06_Home extends React.Component {
         <View style={styles.buttonContainer}>
           <Button
             style={styles.button}
-            title="Veure Religions y Guerres"
+            title="Religions y Guerres"
             onPress={() => this.props.navigation.navigate('Ver')}
             color="purple"
           />

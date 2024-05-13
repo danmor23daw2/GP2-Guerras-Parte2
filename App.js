@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import {M00_Home} from './app/views/M00_Home';
 
-import {M06_Home} from './app/views/M06_Home_routing';
+import {Home} from './app/views/Routing';
 import {Guerras} from './app/views/Guerras';
-import {M07_Camera} from './app/views/M07_Camera';
+import {Camara} from './app/views/Camara';
 import {VeureGuerresReligions} from './app/views/SqliteVer';
 /**
  * Modificacions al component principal d'entrada de React
@@ -22,10 +21,9 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-       <Stack.Screen name="Zero" component={M00_Home} />
-        <Stack.Screen name="Home" component={M06_Home} />
+        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Guerras" component={Guerras} />
-        <Stack.Screen name="Camera" component={M07_Camera} />
+        <Stack.Screen name="Camera" component={Camara} />
         <Stack.Screen name="Ver" component={VeureGuerresReligions} />
       </Stack.Navigator>
     </NavigationContainer>
