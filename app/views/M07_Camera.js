@@ -52,7 +52,7 @@ export class M07_Camera extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <Camera style={{ flex: 1 }} ref={this.cameraRef} />
-        <Button title="Fes una foto" onPress={this.ferFoto} />
+        <Button title="Fes una foto" onPress={this.ferFoto} color="#B881CB" />
         {this.state.imageUri && (
           <View style={{ alignItems: 'center' }}>
             <Image source={{ uri: this.state.imageUri }} style={{ width: 200, height: 200 }} />

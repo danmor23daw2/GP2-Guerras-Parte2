@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     width: '40%',
   },
+  buttonSeparator: {
+    width: '1%', 
+  },
   movieImage: {
     height: 150,
     marginBottom: 10,
@@ -59,11 +62,14 @@ export class M06_Home extends React.Component {
             style={styles.button}
             title="Guerras"
             onPress={() => this.props.navigation.navigate('Guerras')}
+            color="purple"
           />
+          <View style={styles.buttonSeparator} />
           <Button
             style={styles.button}
             title="Anar a Camera"
             onPress={() => this.props.navigation.navigate('Camera')}
+            color="purple"
           />
         </View>
         <View style={styles.buttonContainer}>
@@ -71,6 +77,7 @@ export class M06_Home extends React.Component {
             style={styles.button}
             title="Veure Religions y Guerres"
             onPress={() => this.props.navigation.navigate('Ver')}
+            color="purple"
           />
         </View>
       </View>

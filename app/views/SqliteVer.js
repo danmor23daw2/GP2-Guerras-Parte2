@@ -4,14 +4,14 @@ import * as SQLite from 'expo-sqlite';
 
 const estils = StyleSheet.create({
     textPeu: {
-        color: 'blue',
+        color: 'white',
         fontWeight: 'bold',
         fontSize: 30,
     },
     peu: {
         paddingTop: 10,
         paddingBottom: 10,
-        backgroundColor: '#FA0'
+        backgroundColor: 'purple'
     },
 });
 export class VeureGuerresReligions extends React.Component {
@@ -97,13 +97,13 @@ export class VeureGuerresReligions extends React.Component {
                         value={this.state.editValue}
                         onChangeText={text => this.setState({ editValue: text })}
                     />
-                    <Button title="Guardar" onPress={this.handleEditItem} />
+                    <Button title="Guardar" onPress={this.handleEditItem} color="purple" />
                 </View>
             ) : (
                 <View>
                     <Text>{item.value}</Text>
-                    <Button title="Editar" onPress={() => this.setState({ editingItem: item, editValue: item.value })} />
-                    <Button title="Borrar" onPress={() => this.handleDeleteItem(item.id)} />
+                    <Button title="Editar" onPress={() => this.setState({ editingItem: item, editValue: item.value })} color="purple"/>
+                    <Button title="Borrar" onPress={() => this.handleDeleteItem(item.id)} color="purple"/>
                 </View>
             )}
         </View>
@@ -113,8 +113,8 @@ export class VeureGuerresReligions extends React.Component {
         return (
             <View style={estils.peu}>
                 <Text style={estils.textPeu}> SQLITE </Text>
-                <Button title="Añadir Registro" onPress={this.handleAddItem} />
-                <Button title="Borrar Todos los Registros" onPress={this.handleDeleteAll} />
+                <Button title="Añadir Registro" onPress={this.handleAddItem} color="#B881CB"/>
+                <Button title="Borrar Todos los Registros" onPress={this.handleDeleteAll} color="#B881CB"/>
                 <FlatList
                     data={this.state.items}
                     renderItem={this.renderItem}
