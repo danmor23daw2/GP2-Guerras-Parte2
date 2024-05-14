@@ -73,6 +73,13 @@ export class Home extends React.Component {
           />
         </View>
         <View style={styles.buttonContainer}>
+        <Button
+            title="SQLite"
+            onPress={() => this.props.navigation.navigate('SQLite')}
+            color= "purple"
+          />
+        </View>
+        <View style={styles.buttonContainer}>
           <Button
             style={styles.button}
             title="Religions y Guerres"

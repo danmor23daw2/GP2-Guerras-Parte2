@@ -3,20 +3,26 @@ import { StyleSheet, Text, View, FlatList, TextInput } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 
 const estils = StyleSheet.create({
-    textPeu: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 30,
-        textAlign: 'center',
-    },
-    peu: {
-        paddingTop: 10,
-        paddingBottom: 10,
-        backgroundColor: 'purple'
+  textPeu: {
+      color: 'white',
+      fontWeight: 'bold',
+      fontSize: 30,
+      textAlign: 'center',
+  },
+  peu: {
+      paddingTop: 10,
+      paddingBottom: 10,
+      backgroundColor: 'purple'
+  },
+  item: {
+      backgroundColor: '#EEE',
+      padding: 20,
+      marginVertical: 8,
+      marginHorizontal: 16,
     },
 });
 
-export class VeureGuerresReligions extends React.Component {
+export class Sqlite extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -32,18 +38,10 @@ export class VeureGuerresReligions extends React.Component {
             editingItem: null,
             editValue: '',
         };
-        this.db = SQLite.openDatabase("daw2.db");
-
-        this.db.transaction(tx => {
-            tx.executeSql(
-                "create table if not exists items (id integer primary key not null, done int, value text);"
-            );
-        });
-
     }
 
     renderItem = ({ item }) => (
-        <View style={styles.item}>
+        <View style={estils.item}>
             {this.state.editingItem && this.state.editingItem.id === item.id ? (
                 <View>
                     <TextInput
@@ -73,12 +71,3 @@ export class VeureGuerresReligions extends React.Component {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    item: {
-        backgroundColor: '#EEE',
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
-    },
-});

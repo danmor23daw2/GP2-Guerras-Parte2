@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Button, Image, Text } from 'react-native';
-import { Camera } from 'expo-camera';
+import { Camera } from 'expo-camera/legacy';
 import * as MediaLibrary from 'expo-media-library';
 
 export class Camara extends React.Component {
